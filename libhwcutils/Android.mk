@@ -49,13 +49,12 @@ endif
 # old kernel APIs for calling it (S3C_FB_*).
 # Newer SoCs (Exynos 7420 onwards) make use of a new kernel API.
 # WARNING: Support is highly experimental!
-ifneq ($(filter exynos7420 exynos7580 exynos7880 exynos8890, $(TARGET_SOC)),)
+ifneq ($(filter exynos7420 exynos7580 exynos7870 exynos7880 exynos8890, $(TARGET_SOC)),)
 	LOCAL_CFLAGS += -DDECON_FB
 endif
 
 LOCAL_CFLAGS += -DLOG_TAG=\"hwcutils\"
 LOCAL_C_INCLUDES := \
-	$(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include \
 	$(LOCAL_PATH)/../include \
 	$(LOCAL_PATH)/../libhwc \
 	$(LOCAL_PATH)/../libexynosdisplay \
@@ -66,8 +65,7 @@ LOCAL_C_INCLUDES := \
 	$(TOP)/hardware/samsung_slsi-cm/$(TARGET_SOC)/libhwcutilsmodule \
 	$(TOP)/hardware/samsung_slsi-cm/exynos/libmpp
 
-LOCAL_ADDITIONAL_DEPENDENCIES := \
-	INSTALLED_KERNEL_HEADERS
+LOCAL_HEADER_LIBRARIES := generated_kernel_headers
 
 ifeq ($(BOARD_HDMI_INCAPABLE), true)
 LOCAL_C_INCLUDES += $(TOP)/hardware/samsung_slsi-cm/exynos/libhdmi_dummy

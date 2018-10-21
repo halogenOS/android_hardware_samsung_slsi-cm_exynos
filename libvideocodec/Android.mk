@@ -12,13 +12,11 @@ LOCAL_SRC_FILES := \
 	enc/ExynosVideoEncoder.c
 
 LOCAL_C_INCLUDES := \
-	$(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include \
 	$(LOCAL_PATH)/include \
 	$(TOP)/hardware/samsung_slsi-cm/exynos/include \
 	$(TOP)/hardware/samsung_slsi-cm/$(TARGET_BOARD_PLATFORM)/include
 
-LOCAL_ADDITIONAL_DEPENDENCIES += \
-	INSTALLED_KERNEL_HEADERS
+LOCAL_HEADER_LIBRARIES := generated_kernel_headers
 
 ifeq ($(BOARD_USE_KHRONOS_OMX_HEADER), true)
 LOCAL_C_INCLUDES += $(TOP)/hardware/samsung_slsi-cm/openmax/include/khronos
@@ -34,7 +32,7 @@ ifeq ($(BOARD_USE_HEVC_HWIP), true)
 LOCAL_CFLAGS += -DUSE_HEVC_HWIP
 endif
 
-ifneq ($(filter exynos5422 exynos5430 exynos5433 exynos7420 exynos7580 exynos7880 exynos8890, $(TARGET_SOC)),)
+ifneq ($(filter exynos5422 exynos5430 exynos5433 exynos7420 exynos7580 exynos7870 exynos7880 exynos8890, $(TARGET_SOC)),)
 LOCAL_CFLAGS += -DNEW_API
 endif
 
