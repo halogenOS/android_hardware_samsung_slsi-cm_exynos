@@ -32,6 +32,10 @@ LOCAL_SHARED_LIBRARIES := \
 	libutils \
 	libexynosutils 
 
+LOCAL_CFLAGS += -Wno-unused-variable
+LOCAL_CFLAGS += -Wno-unused-parameter
+LOCAL_CFLAGS += -Wno-unused-function
+
 LOCAL_MODULE := libexynosv4l2
 LOCAL_MODULE_TAGS := eng
 
