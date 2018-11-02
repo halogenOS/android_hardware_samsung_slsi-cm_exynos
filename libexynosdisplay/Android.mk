@@ -75,7 +75,6 @@ LOCAL_CFLAGS += -Wno-unused-variable
 LOCAL_CFLAGS += -Wno-sign-compare
 LOCAL_CFLAGS += -Wno-unused-function
 LOCAL_CFLAGS += -Wno-format
->>>>>>> 87f353a... fix build errors
 
 LOCAL_SRC_FILES := \
 	ExynosDisplay.cpp \
