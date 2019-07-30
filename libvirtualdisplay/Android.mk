@@ -27,6 +27,7 @@ endif
 
 LOCAL_CFLAGS += -DUSES_VIRTUAL_DISPLAY
 LOCAL_CFLAGS += -DLOG_TAG=\"virtual\"
+LOCAL_CFLAGS += -Wno-mismatched-tags -Wno-unused-parameter -Wno-format -Wno-unused-variable -Wno-gnu-designator -Wno-error
 
 LOCAL_C_INCLUDES := \
 	$(LOCAL_PATH)/../include \

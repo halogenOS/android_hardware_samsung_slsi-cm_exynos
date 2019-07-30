@@ -45,6 +45,8 @@ ifeq ($(BOARD_HDMI_INCAPABLE), true)
 	LOCAL_CFLAGS += -DHDMI_INCAPABLE
 endif
 
+LOCAL_CFLAGS += -Wno-mismatched-tags -Wno-unused-parameter -Wno-format -Wno-unused-variable -Wno-gnu-designator -Wno-error
+
 # Exynos 5430 onwards use a decon frame buffer device, but still have the
 # old kernel APIs for calling it (S3C_FB_*).
 # Newer SoCs (Exynos 7420 onwards) make use of a new kernel API.
